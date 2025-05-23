@@ -1,0 +1,55 @@
+.fondo-edificios {
+    background-image: url('/images/edificios.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.core-content {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button-contact,
+.button-budget {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button-contact {
+    background-color: #0077cc;
+    color: white;
+}
+
+.button-contact:hover {
+    background-color: #005fa3;
+}
+
+.button-budget {
+    background-color: #ffffff;
+    color: #202020;
+}
+
+.button-budget:hover {
+    background-color: #9b9a9a;
+}

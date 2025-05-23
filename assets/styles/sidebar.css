@@ -1,12 +1,10 @@
-/* Sidebar fijo a la derecha */
-/* Sidebar fija a la izquierda */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 250px;
-    background-color: #333;
+    background-color: #202020;
     color: white;
     display: flex;
     flex-direction: column;
@@ -16,9 +14,10 @@
     z-index: 9998;
 }
 
+/* Logo */
 .sidebar-logo {
     width: 100%;
-    max-width: 180px;
+    max-width: 200px;
     margin-bottom: 1rem;
 }
 
@@ -30,7 +29,11 @@
     display: block;
 }
 
-/* Botón hamburguesa: inicialmente oculto */
+.sidebar .menu a:hover {
+    color: gray;
+}
+
+/* Botón hamburguesa: oculto en pantallas grandes */
 .hamburger {
     display: none;
     position: fixed;
@@ -42,6 +45,12 @@
     color: white;
     z-index: 10000;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Estado activo del botón */
+.hamburger.open {
+    color: white; /* Asegura que sea visible sobre fondo oscuro */
 }
 
 /* Responsive para móviles */
@@ -56,10 +65,6 @@
 
     .hamburger {
         display: block;
-        color: #170992; /* color claro visible sobre fondo oscuro del menú */
-         /* opcional: para que se vea mejor el botón */
-       
         padding: 0.1rem 0.75rem;
-        border-radius: 4px;
     }
 }
