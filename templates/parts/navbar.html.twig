@@ -1,0 +1,26 @@
+<header class="navbar">
+  <div class="navbar-top">
+    <div class="navbar-brand">
+      <span class="brand-text">GesTuFinca</span>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+      ☰
+    </button>
+    <nav id="mobile-menu" class="navbar-menu">
+      <a href="{{ path('app_home') }}">{{ 'Inicio'|trans }}</a>
+      <a href="#c">{{ 'Noticias'|trans }}</a>
+      <a href="#c">{{ '¿Quienes somos?'|trans }}</a>
+      <a href="#c">{{ 'Opiniones'|trans }}</a>
+      <a href="#c">{{ 'Contacto'|trans }}</a>
+      <a href="#c">{{ 'login'|trans }}</a>
+    </nav>
+  </div>
+</header>
+
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('open');
+    }
+</script>

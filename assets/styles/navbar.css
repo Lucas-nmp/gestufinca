@@ -1,0 +1,76 @@
+/* Estilos base (móvil) */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.brand-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.navbar-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.navbar-menu a {
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+/* Cuando el menú está activo en móvil */
+.navbar-menu.open {
+  display: flex;
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 768px) {
+  .navbar-top {
+    flex-wrap: nowrap;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .navbar-menu {
+    display: flex !important;
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: auto;
+    gap: 1rem;
+    width: auto;
+  }
+
+  .navbar-menu a {
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+}
