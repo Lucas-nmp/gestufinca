@@ -1,22 +1,22 @@
-<!-- Botón hamburguesa -->
+
 <button id="hamburger" class="hamburger" onclick="toggleSidebar()">☰</button>
 
-<!-- Sidebar -->
+
 <div id="sidebar" class="sidebar">
     <h2>GesTuFinca</h2>
     <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="sidebar-logo">
     <nav class="menu">
         <a href="{{ path('app_home') }}">{{ 'Inicio'|trans }}</a>
-        <a href="#c">{{ 'Servicios'|trans }}</a>
+        <a href="#services">{{ 'Servicios'|trans }}</a>
         <a href="#c">{{ '¿Quienes somos?'|trans }}</a>
-        <a href="#c">{{ 'Opiniones'|trans }}</a>
-        <a href="#c">{{ 'Noticias'|trans }}</a>
-        <a href="#c">{{ 'Contacto'|trans }}</a>
+        <a href="#opinions">{{ 'Opiniones'|trans }}</a>
+        <a href="#news">{{ 'Noticias'|trans }}</a>
+        <a href="#contact">{{ 'Contacto'|trans }}</a>
         <a href="#c">{{ 'login'|trans }}</a>
     </nav>
 </div>
 
-<!-- Script -->
+
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
@@ -25,7 +25,24 @@
         sidebar.classList.toggle('open');
         hamburger.classList.toggle('open');
 
-        // Cambia el ícono entre ☰ y ✖
+        
         hamburger.textContent = hamburger.classList.contains('open') ? '✖' : '☰';
     }
+</script>
+ 
+
+
+<script>
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.getElementById('hamburger');
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.textContent = '☰';
+            }
+        });
+    });
 </script>

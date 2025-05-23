@@ -1,0 +1,40 @@
+.contact-section {
+    background-image: url('/images/contact.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5rem 2rem;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-content {
+    background-color: rgba(0, 0, 0, 0.6); /* fondo oscuro translúcido */
+    padding: 3rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-content h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #f0f0f0;
+}
+
+.contact-content a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.contact-content a:hover {
+    color: #cccccc;
+}
