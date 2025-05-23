@@ -8,6 +8,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/footer.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/sidebar.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -15,7 +16,7 @@
         {% endblock %}
     </head>
     <body>
-        {% include 'parts/navbar.html.twig' %}
+        {% include 'parts/sidebar.html.twig' %}
 
         {% block body %}{% endblock %}
 

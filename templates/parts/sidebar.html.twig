@@ -1,0 +1,25 @@
+
+    
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<div id="sidebar" class="sidebar">
+    <h2> GesTuFinca </h2>
+    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="sidebar-logo">
+    <nav class="menu">
+        <a href="{{ path('app_home') }}">{{ 'Inicio'|trans }}</a>
+        <a href="#c">{{ 'Noticias'|trans }}</a>
+        <a href="#c">{{ '¿Quienes somos?'|trans }}</a>
+        <a href="#c">{{ 'Opiniones'|trans }}</a>
+        <a href="#c">{{ 'Contacto'|trans }}</a>
+        <a href="#c">{{ 'login'|trans }}</a>
+    </nav>
+</div>
+    
+
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>

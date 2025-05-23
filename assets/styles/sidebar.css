@@ -1,0 +1,65 @@
+/* Sidebar fijo a la derecha */
+/* Sidebar fija a la izquierda */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    transition: transform 0.3s ease-in-out;
+    z-index: 9998;
+}
+
+.sidebar-logo {
+    width: 100%;
+    max-width: 180px;
+    margin-bottom: 1rem;
+}
+
+/* Enlaces del menú */
+.sidebar .menu a {
+    color: white;
+    text-decoration: none;
+    margin: 1rem 0;
+    display: block;
+}
+
+/* Botón hamburguesa: inicialmente oculto */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+/* Responsive para móviles */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+        color: #170992; /* color claro visible sobre fondo oscuro del menú */
+         /* opcional: para que se vea mejor el botón */
+       
+        padding: 0.1rem 0.75rem;
+        border-radius: 4px;
+    }
+}
