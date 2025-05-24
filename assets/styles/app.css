@@ -39,7 +39,7 @@ li {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1440px) {
     .main-content {
         margin-left: 0; /* elimina el margen izquierdo */
         padding: 1rem; /* reduce el padding */
@@ -62,4 +62,15 @@ li {
         font-size: 1.5rem; /* tamaño de fuente más pequeño */
     }
  
+}
+
+/* Para portátiles de 1024px a 1440px */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .main-content {
+    margin-left: 0; /* elimina el margen izquierdo */
+    padding: 1rem; /* reduce el padding */
+   
+  }
+
+
 }

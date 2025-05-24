@@ -68,3 +68,18 @@
         padding: 0.1rem 0.75rem;
     }
 }
+
+
+/* Para portátiles de 1024px a 1440px */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .sidebar {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .content {
+    margin-left: 250px; /* ajusta este valor al ancho real de tu sidebar */
+    padding: 20px;
+  }
+}
+
