@@ -1,45 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello NewsController!{% endblock %}
+{% block title %}News index{% endblock %}
 
 {% block body %}
-    <section id="news" class="news-section">
-        <h2>Últimas noticias</h2>
-        <div class="news-grid">
-            <div class="news-card">
-                <h3>Digital Access Control Implemented</h3>
-                <span class="date">2025-05-20</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. </p>
-            </div>
-            <div class="news-card">
-                <h3>New Platform for Booking Common Areas</h3>
-                <span class="date">2025-05-18</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla, justo sit amet iaculis vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. </p>
-            </div>
-            <div class="news-card">
-                <h3>Updated Financial Report Now Available</h3>
-                <span class="date">2025-05-15</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vel eros tempor sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. </p>
-            </div>
-            <div class="news-card">
-                <h3>Improved Garage Lighting System</h3>
-                <span class="date">2025-05-12</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a libero vel neque efficitur gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo.</p>
-            </div>
-            <div class="news-card">
-                <h3>Extraordinary General Meeting Called</h3>
-                <span class="date">2025-05-10</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue justo nec lorem elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo.</p>
-            </div>
-            <div class="news-card">
-                <h3>Digital Suggestion Box Now Active</h3>
-                <span class="date">2025-05-08</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula urna id cursus laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit urna vel diam tincidunt commodo. </p>
-            </div>
-        </div>
-    </section>
+    <h1>News index</h1>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>News_date</th>
+                <th>Body_news</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                <td>{{ news.id }}</td>
+                <td>{{ news.title }}</td>
+                <td>{{ news.newsDate ? news.newsDate|date('Y-m-d') : '' }}</td>
+                <td>{{ news.bodyNews }}</td>
+                <td>
+                    <a href="{{ path('app_news_show', {'id': news.id}) }}">show</a>
+                    <a href="{{ path('app_news_edit', {'id': news.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-
-
+    <a href="{{ path('app_news_new') }}">Create new</a>
 {% endblock %}
