@@ -1,5 +1,3 @@
-{% extends 'base.html.twig' %}
-
 {% block title %}News index{% endblock %}
 
 {% block body %}
@@ -16,22 +14,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for news in news %}
-            <tr>
-                <td>{{ news.id }}</td>
-                <td>{{ news.title }}</td>
-                <td>{{ news.newsDate ? news.newsDate|date('Y-m-d') : '' }}</td>
-                <td>{{ news.bodyNews }}</td>
-                <td>
-                    <a href="{{ path('app_news_show', {'id': news.id}) }}">show</a>
-                    <a href="{{ path('app_news_edit', {'id': news.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
+        
         </tbody>
     </table>
 
