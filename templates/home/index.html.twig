@@ -7,14 +7,7 @@
     {% include 'parts/welcome.html.twig' %}
     {% include 'parts/services.html.twig' %}
     {% include 'parts/opinions.html.twig' %}
-    {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-        {% include 'parts/news.html.twig' %}
-    {%endif %}   
-    
+    {% include 'parts/news.html.twig' %}
     {% include 'parts/contact.html.twig' %}
     
-
-    
-
-
 {% endblock %}
