@@ -31,27 +31,41 @@
     transition: background-color 0.3s ease;
 }
 
-.table a {
-    text-decoration: none;
-    color: #0077cc;
-    font-weight: bold;
+.table-wrapper {
+    margin-left: 250px;
+    padding: 2rem;
 }
 
-.table a:hover {
-    text-decoration: underline;
+.table-wrapper h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 2rem;
 }
 
-a[href*="new"] {
+.table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.create-button {
     display: inline-block;
-    margin-bottom: 1.5rem;
-    padding: 0.6rem 1.2rem;
-    background-color: #28a745;
+    margin-bottom: 1rem;
+    background-color: #0077cc;
     color: white;
-    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-a[href*="new"]:hover {
-    background-color: #218838;
+.create-button:hover {
+    background-color: #005fa3;
 }
+
+
+
+
+
+
+

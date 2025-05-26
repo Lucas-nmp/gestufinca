@@ -1,27 +1,28 @@
+{% extends 'base.html.twig' %}
 {% block title %}News index{% endblock %}
 
 {% block body %}
-    <div class="table">
-        <a href="{{ path('app_news_new') }}">Create new</a>
-        <h1>News index</h1>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>News_date</th>
-                    <th>Body_news</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-            </tbody>
-        </table>
+    <br>
+    <br>
+    <h1>News index</h1>
+    <a href="{{ path('app_news_new') }}">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>News_date</th>
+                <th>Body_news</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
 
         
 
-    </div>
+  
     
 {% endblock %}
