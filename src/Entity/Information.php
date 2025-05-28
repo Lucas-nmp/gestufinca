@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\InformationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Community;
 
 #[ORM\Entity(repositoryClass: InformationRepository::class)]
 class Information
@@ -23,8 +24,9 @@ class Information
     #[ORM\Column(type: Types::TEXT)]
     private ?string $body_information = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $community = null;
+    #[ORM\ManyToOne(inversedBy: 'information')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Community $community = null;
 
     public function getId(): ?int
     {
@@ -67,15 +69,16 @@ class Information
         return $this;
     }
 
-    public function getCommunity(): ?string
+    public function getCommunity(): ?Community
     {
         return $this->community;
     }
 
-    public function setCommunity(string $community): static
+    public function setCommunity(?Community $community): static
     {
         $this->community = $community;
 
         return $this;
     }
+
 }

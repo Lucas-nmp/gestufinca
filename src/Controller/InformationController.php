@@ -22,6 +22,14 @@ final class InformationController extends AbstractController
         ]);
     }
 
+    #[Route(name: 'app_community_information', methods: ['GET'])]
+    public function community_information(InformationRepository $informationRepository): Response
+    {
+        return $this->render('information/index.html.twig', [
+            'information' => $informationRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'app_information_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
