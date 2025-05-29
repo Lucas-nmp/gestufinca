@@ -40,6 +40,12 @@ class Community
     #[ORM\OneToMany(targetEntity: Neighbor::class, mappedBy: 'community')]
     private Collection $neighbors;
 
+    /**
+     * @var Collection<int, User>
+     */
+    #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'community')]
+    private Collection $users;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +115,7 @@ class Community
     {
         $this->information = new ArrayCollection();
         $this->neighbors = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getInformation(): Collection
@@ -140,6 +147,36 @@ class Community
             // set the owning side to null (unless already changed)
             if ($neighbor->getCommunity() === $this) {
                 $neighbor->setCommunity(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->setCommunity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getCommunity() === $this) {
+                $user->setCommunity(null);
             }
         }
 

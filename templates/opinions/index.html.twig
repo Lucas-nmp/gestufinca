@@ -3,37 +3,43 @@
 {% block title %}Opinions index{% endblock %}
 
 {% block body %}
-    <h1>Opinions index</h1>
+    <br>
+    <br>
+    <div class="table-wrapper">
+        <h1>{{ 'Opiniones'|trans }}</h1>
+        <div class="table-container">
+            <a href="{{ path('app_opinions_new') }}" class="create-button">{{ 'Nueva opinión'|trans }}</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>NameNeighbor</th>
+                        <th>DateOpinion</th>
+                        <th>Body</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for opinion in opinions %}
+                    <tr>
+                        <td>{{ opinion.id }}</td>
+                        <td>{{ opinion.nameNeighbor }}</td>
+                        <td>{{ opinion.dateOpinion ? opinion.dateOpinion|date('Y-m-d') : '' }}</td>
+                        <td>{{ opinion.body }}</td>
+                        <td>
+                            <a href="{{ path('app_opinions_show', {'id': opinion.id}) }}">show</a>
+                            <a href="{{ path('app_opinions_edit', {'id': opinion.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NameNeighbor</th>
-                <th>DateOpinion</th>
-                <th>Body</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for opinion in opinions %}
-            <tr>
-                <td>{{ opinion.id }}</td>
-                <td>{{ opinion.nameNeighbor }}</td>
-                <td>{{ opinion.dateOpinion ? opinion.dateOpinion|date('Y-m-d') : '' }}</td>
-                <td>{{ opinion.body }}</td>
-                <td>
-                    <a href="{{ path('app_opinions_show', {'id': opinion.id}) }}">show</a>
-                    <a href="{{ path('app_opinions_edit', {'id': opinion.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_opinions_new') }}">Create new</a>
+    
 {% endblock %}

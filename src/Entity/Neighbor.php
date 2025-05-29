@@ -28,6 +28,12 @@ class Neighbor
     #[ORM\ManyToOne(inversedBy: 'neighbors')]
     private ?Community $community = null;
 
+    #[ORM\Column]
+    private ?bool $president = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $role = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +95,30 @@ class Neighbor
     public function setCommunity(?Community $community): static
     {
         $this->community = $community;
+
+        return $this;
+    }
+
+    public function isPresident(): ?bool
+    {
+        return $this->president;
+    }
+
+    public function setPresident(bool $president): static
+    {
+        $this->president = $president;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): static
+    {
+        $this->role = $role;
 
         return $this;
     }

@@ -6,19 +6,19 @@
     <br>
     <br>
     <div class="table-wrapper">
-        <h1>Information index</h1>
+        <h1>{{ 'Información de tu comunidad'|trans }}</h1>
         <div class="table-container">
-            <a href="{{ path('app_information_new') }}" class="create-button">Create new</a>
+            <a href="{{ path('app_information_new') }}" class="create-button">{{ 'Nueva información'|trans }}</a>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Dare_information</th>
-                        <th>Body_information</th>
-                        <th>Community</th>
-                        <th>actions</th>
+                        <th>{{ 'Id'|trans }}</th>
+                        <th>{{ 'Título'|trans }}</th>
+                        <th>{{ 'fecha'|trans }}</th>
+                        <th>{{' Información'|trans }}</th>
+                        <th>{{ 'Comunidad'|trans }}</th>
+                        <th>{{ 'Acciones'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>

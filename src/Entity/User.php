@@ -31,6 +31,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $full_name = null;
+
+    #[ORM\Column]
+    private ?bool $president = null;
+
+    #[ORM\Column(length: 9)]
+    private ?string $dni = null;
+
+    #[ORM\Column(length: 9)]
+    private ?string $phone = null;
+
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Community $community = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,5 +120,65 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getFullName(): ?string
+    {
+        return $this->full_name;
+    }
+
+    public function setFullName(string $full_name): static
+    {
+        $this->full_name = $full_name;
+
+        return $this;
+    }
+
+    public function isPresident(): ?bool
+    {
+        return $this->president;
+    }
+
+    public function setPresident(bool $president): static
+    {
+        $this->president = $president;
+
+        return $this;
+    }
+
+    public function getDni(): ?string
+    {
+        return $this->dni;
+    }
+
+    public function setDni(string $dni): static
+    {
+        $this->dni = $dni;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): static
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getCommunity(): ?Community
+    {
+        return $this->community;
+    }
+
+    public function setCommunity(?Community $community): static
+    {
+        $this->community = $community;
+
+        return $this;
     }
 }

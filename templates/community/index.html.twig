@@ -1,43 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Community index{% endblock %}
+{% block title %}{{ 'Comunidades'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Community index</h1>
+    <br>
+    <br>
+    <div class="table-wrapper">
+        <h1>{{ 'Comunidades'|trans }}</h1>
+        <div class="table-container">
+            <a href="{{ path('app_community_new') }}" class="create-button">{{ 'Nueva comunidad'|trans }}</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{{ 'Id'|trans }}</th>
+                        <th>{{ 'Dirección'|trans }}</th>
+                        <th>{{ 'Número'|trans }}</th>
+                        <th>{{ 'Localidad'|trans }}</th>
+                        <th>{{ 'Número de vecinos'|trans }}</th>
+                        <th>{{'Id_neighbor'}}</th>
+                        <th>{{ 'Acciones'|trans }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for community in communities %}
+                    <tr>
+                        <td>{{ community.id }}</td>
+                        <td>{{ community.address }}</td>
+                        <td>{{ community.number }}</td>
+                        <td>{{ community.locality }}</td>
+                        <td>{{ community.neighborsCount }}</td>
+                        <td>{{ community.idNeighbor }}</td>
+                        <td>
+                            <a href="{{ path('app_community_show', {'id': community.id}) }}">show</a>
+                            <a href="{{ path('app_community_edit', {'id': community.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Address</th>
-                <th>Number</th>
-                <th>Locality</th>
-                <th>NeighborsCount</th>
-                <th>Id_neighbor</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for community in communities %}
-            <tr>
-                <td>{{ community.id }}</td>
-                <td>{{ community.address }}</td>
-                <td>{{ community.number }}</td>
-                <td>{{ community.locality }}</td>
-                <td>{{ community.neighborsCount }}</td>
-                <td>{{ community.idNeighbor }}</td>
-                <td>
-                    <a href="{{ path('app_community_show', {'id': community.id}) }}">show</a>
-                    <a href="{{ path('app_community_edit', {'id': community.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_community_new') }}">Create new</a>
+    
 {% endblock %}
