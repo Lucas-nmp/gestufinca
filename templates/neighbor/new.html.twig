@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Neighbor{% endblock %}
+
+{% block body %}
+    <h1>Create new Neighbor</h1>
+
+    {{ include('neighbor/_form.html.twig') }}
+
+    <a href="{{ path('app_neighbor_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Neighbor index{% endblock %}
+
+{% block body %}
+    <h1>Neighbor index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Dni</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for neighbor in neighbors %}
+            <tr>
+                <td>{{ neighbor.id }}</td>
+                <td>{{ neighbor.fullname }}</td>
+                <td>{{ neighbor.dni }}</td>
+                <td>{{ neighbor.phone }}</td>
+                <td>{{ neighbor.email }}</td>
+                <td>
+                    <a href="{{ path('app_neighbor_show', {'id': neighbor.id}) }}">show</a>
+                    <a href="{{ path('app_neighbor_edit', {'id': neighbor.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_neighbor_new') }}">Create new</a>
+{% endblock %}

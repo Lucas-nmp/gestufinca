@@ -17,8 +17,9 @@
 /* Logo */
 .sidebar-logo {
     width: 100%;
-    max-width: 200px;
+    max-width: 150px;
     margin-bottom: 1rem;
+    margin-left: 1.5rem;
 }
 
 /* Enlaces del menú */

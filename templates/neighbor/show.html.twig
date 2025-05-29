@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Neighbor{% endblock %}
+
+{% block body %}
+    <h1>Neighbor</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ neighbor.id }}</td>
+            </tr>
+            <tr>
+                <th>Fullname</th>
+                <td>{{ neighbor.fullname }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ neighbor.dni }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ neighbor.phone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ neighbor.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_neighbor_index') }}">back to list</a>
+
+    <a href="{{ path('app_neighbor_edit', {'id': neighbor.id}) }}">edit</a>
+
+    {{ include('neighbor/_delete_form.html.twig') }}
+{% endblock %}

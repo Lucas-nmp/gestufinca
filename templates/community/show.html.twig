@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Community{% endblock %}
+
+{% block body %}
+    <h1>Community</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ community.id }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ community.address }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ community.number }}</td>
+            </tr>
+            <tr>
+                <th>Locality</th>
+                <td>{{ community.locality }}</td>
+            </tr>
+            <tr>
+                <th>NeighborsCount</th>
+                <td>{{ community.neighborsCount }}</td>
+            </tr>
+            <tr>
+                <th>Id_neighbor</th>
+                <td>{{ community.idNeighbor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_community_index') }}">back to list</a>
+
+    <a href="{{ path('app_community_edit', {'id': community.id}) }}">edit</a>
+
+    {{ include('community/_delete_form.html.twig') }}
+{% endblock %}
