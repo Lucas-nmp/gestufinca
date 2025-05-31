@@ -1,29 +1,17 @@
 <section id="opinions" class="opiniones-section">
     <h2>Lo que opinan nuestros vecinos</h2>
     <div class="opiniones-grid">
-        <div class="opinion-card">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel eros vitae est fermentum pharetra.
-            <div class="autor">– Carmen Ruiz, 15/03/2025</div>
-        </div>
-        <div class="opinion-card">
-            Ut placerat nunc ac nisi blandit, a bibendum lectus malesuada. Praesent eget mauris at nisi congue.
-            <div class="autor">– Antonio Márquez, 10/04/2025</div>
-        </div>
-        <div class="opinion-card">
-            Mauris facilisis enim sed sapien malesuada, nec posuere leo fermentum. Integer convallis erat vel.
-            <div class="autor">– Lucía Herrera, 27/02/2025</div>
-        </div>
-        <div class="opinion-card">
-            Vestibulum consequat sapien in sem feugiat, sed dignissim ligula fermentum. Nullam ac convallis enim.
-            <div class="autor">– José Luis Ortega, 01/05/2025</div>
-        </div>
-        <div class="opinion-card">
-            Nam facilisis eros ut sem bibendum, id rutrum nisi bibendum. Curabitur fermentum justo a porta.
-            <div class="autor">– Marta Fernández, 22/03/2025</div>
-        </div>
-        <div class="opinion-card">
-            Fusce nec nisi sed turpis pulvinar fermentum. Suspendisse potenti. Duis convallis sapien in lacinia.
-            <div class="autor">– Álvaro Gómez, 05/04/2025</div>
-        </div>
+        
+        {% for opinions in latestOpinions %}
+            <div class="opinion-card">
+                
+                {{ opinions.body }}
+
+                <div class="autor"> - {{ opinions.nameNeighbor }} </div>
+            </div>  
+        {% else %}
+            <p>No hay opiniones disponibles.</p>
+        {% endfor %}
+    
     </div>
 </section>

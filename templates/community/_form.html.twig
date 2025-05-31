@@ -1,4 +1,14 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.address) }}
+    <div class="form-row-inline">
+        {{ form_row(form.number, {'row_attr': {'class': 'form-small'}}) }}
+        {{ form_row(form.locality, {'row_attr': {'class': 'form-small'}}) }}
+        {{ form_row(form.neighborsCount, {'row_attr': {'class': 'form-small'}}) }}
+    </div>
+
+    {{ form_row(form.id_neighbor) }}
+    <div class="form-buttons">
+        <button class="btn">{{ button_label|default('Save') }}</button>
+        <a href="{{ path('app_community_index') }}" class="btn btn-secondary">Back to list</a>
+    </div>
 {{ form_end(form) }}
