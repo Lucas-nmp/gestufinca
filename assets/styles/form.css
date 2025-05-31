@@ -113,3 +113,18 @@ form button.btn:hover {
     gap: 1rem;
     flex-wrap: wrap;
 }
+
+/* Contenedor general del campo de fecha */
+.date-information {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Cada select dentro del campo de fecha */
+.date-information select {
+    width: auto;
+    display: inline-block;
+    flex: 1;
+    min-width: 80px;
+}

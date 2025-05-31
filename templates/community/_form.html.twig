@@ -8,7 +8,7 @@
 
     {{ form_row(form.id_neighbor) }}
     <div class="form-buttons">
-        <button class="btn">{{ button_label|default('Save') }}</button>
-        <a href="{{ path('app_community_index') }}" class="btn btn-secondary">Back to list</a>
+        <button class="btn">{{ button_label|default('Guardar') }}</button>
+        <a href="{{ path('app_community_index') }}" class="btn btn-secondary">{{ 'Volver al listado'|trans }}</a>
     </div>
 {{ form_end(form) }}

@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Opinions{% endblock %}
+{% block title %}{{'Nueva opinión'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Create new Opinions</h1>
+    <br>
+    <br>
+    <h1 class="form-title">{{ 'Alta nueva opinión'|trans }}</h1>
 
     {{ include('opinions/_form.html.twig') }}
 
-    <a href="{{ path('app_opinions_index') }}">back to list</a>
+    
 {% endblock %}

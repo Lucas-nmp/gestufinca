@@ -182,4 +182,9 @@ class Community
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->address . ' Nº ' . $this->number . ', ' . $this->locality;
+    }
 }

@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Information{% endblock %}
+{% block title %} {{ ' Nueva información'|trans}} {% endblock %}
 
 {% block body %}
-    <h1>Create new Information</h1>
-
+    <br>
+    <br>
+    <h1 class="form-title">{{ 'Nueva Información de comunidad'|trans }}</h1>
     {{ include('information/_form.html.twig') }}
 
-    <a href="{{ path('app_information_index') }}">back to list</a>
+    
 {% endblock %}

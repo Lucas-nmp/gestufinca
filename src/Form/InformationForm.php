@@ -6,6 +6,7 @@ use App\Entity\Information;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class InformationForm extends AbstractType
 {
@@ -13,7 +14,12 @@ class InformationForm extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('dare_information')
+            ->add('dare_information', DateType::class, [
+                'widget' => 'choice',
+                'label' => 'Fecha de la información',
+                'data' => new \DateTime(),
+                'attr' => ['class' => 'date-information'],
+            ])
             ->add('body_information')
             ->add('community')
         ;

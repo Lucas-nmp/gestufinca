@@ -7,7 +7,7 @@
                 
                 {{ opinions.body }}
 
-                <div class="autor"> - {{ opinions.nameNeighbor }} </div>
+                <div class="autor"> - {{ opinions.nameNeighbor }} ({{ opinions.dateOpinion|date('d/m/Y') }})</div>
             </div>  
         {% else %}
             <p>No hay opiniones disponibles.</p>
