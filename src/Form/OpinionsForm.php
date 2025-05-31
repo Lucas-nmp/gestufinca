@@ -6,6 +6,7 @@ use App\Entity\Opinions;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class OpinionsForm extends AbstractType
 {
@@ -13,7 +14,13 @@ class OpinionsForm extends AbstractType
     {
         $builder
             ->add('nameNeighbor')
-            ->add('dateOpinion')
+            
+            ->add('dateOpinion', DateType::class, [
+                'widget' => 'choice',
+                'label' => 'Fecha de la información',
+                'data' => new \DateTime(),
+                'attr' => ['class' => 'date-information'],
+            ])
             ->add('body')
         ;
     }
