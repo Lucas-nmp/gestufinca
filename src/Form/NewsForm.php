@@ -6,6 +6,7 @@ use App\Entity\News;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class NewsForm extends AbstractType
 {
@@ -13,7 +14,12 @@ class NewsForm extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('news_date')
+            ->add('news_date', DateType::class, [
+                'widget' => 'choice',
+                'label' => 'Fecha de la noticia',
+                'data' => new \DateTime(),
+                'attr' => ['class' => 'date-information'],
+            ])
             ->add('body_news')
         ;
     }

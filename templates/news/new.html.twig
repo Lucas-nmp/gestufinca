@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New News{% endblock %}
+{% block title %}{{'Nueva Noticia'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Create new News</h1>
+
+    <br>
+    <br>
+    <h1 class="form-title">{{ 'Nueva noticia'|trans }}</h1>
 
     {{ include('news/_form.html.twig') }}
 
-    <a href="{{ path('app_news_index') }}">back to list</a>
 {% endblock %}
