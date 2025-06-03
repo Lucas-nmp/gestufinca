@@ -16,7 +16,6 @@ class CommunityForm extends AbstractType
             ->add('number')
             ->add('locality')
             ->add('neighborsCount')
-            ->add('id_neighbor')
         ;
     }
 

@@ -28,8 +28,6 @@ class Community
     #[ORM\Column]
     private ?int $neighborsCount = null;
 
-    #[ORM\Column]
-    private ?int $id_neighbor = null;
 
     #[ORM\OneToMany(mappedBy: 'community', targetEntity: Information::class)]
     private Collection $information;
@@ -99,17 +97,6 @@ class Community
         return $this;
     }
 
-    public function getIdNeighbor(): ?int
-    {
-        return $this->id_neighbor;
-    }
-
-    public function setIdNeighbor(int $id_neighbor): static
-    {
-        $this->id_neighbor = $id_neighbor;
-
-        return $this;
-    }
 
     public function __construct()
     {

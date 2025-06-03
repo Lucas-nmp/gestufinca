@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Entity\User;    
 
 #[Route('/information')]
 final class InformationController extends AbstractController
@@ -25,10 +26,24 @@ final class InformationController extends AbstractController
     #[Route(name: 'app_community_information', methods: ['GET'])]
     public function community_information(InformationRepository $informationRepository): Response
     {
+        $user = $this->getUser();
+
+        if (!$user instanceof \App\Entity\User || !$user->getCommunity()) {
+            throw $this->createAccessDeniedException('No tienes una comunidad asignada.');
+        }
+
+
+        // Obtener la comunidad del usuario
+        $community = $user->getCommunity();
+
+        // Obtener informaciones solo de esa comunidad
+        $informations = $informationRepository->findBy(['community' => $community]);
+
         return $this->render('information/index.html.twig', [
-            'information' => $informationRepository->findAll(),
+            'information' => $informations,
         ]);
     }
+
 
     #[Route('/new', name: 'app_information_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response

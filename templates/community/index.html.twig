@@ -17,7 +17,6 @@
                         <th>{{ 'Número'|trans }}</th>
                         <th>{{ 'Localidad'|trans }}</th>
                         <th>{{ 'Número de vecinos'|trans }}</th>
-                        <th>{{'Id_neighbor'}}</th>
                         <th>{{ 'Acciones'|trans }}</th>
                     </tr>
                 </thead>
@@ -29,10 +28,10 @@
                         <td>{{ community.number }}</td>
                         <td>{{ community.locality }}</td>
                         <td>{{ community.neighborsCount }}</td>
-                        <td>{{ community.idNeighbor }}</td>
-                        <td>
-                            <a href="{{ path('app_community_show', {'id': community.id}) }}">show</a>
-                            <a href="{{ path('app_community_edit', {'id': community.id}) }}">edit</a>
+                        <td class="actions">
+                            <a href="{{ path('app_community_edit', {'id': community.id}) }}" class="btn">Editar</a>
+
+                            {{ include('community/_delete_form.html.twig') }}
                         </td>
                     </tr>
                 {% else %}

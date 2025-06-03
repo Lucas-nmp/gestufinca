@@ -14,7 +14,7 @@
         <a href="#contact">{{ 'Contacto'|trans }}</a>
         <a href="{{ path('app_login') }}">{{ 'login'|trans }}</a>
         {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('app_information_index') }}">{{ 'Información de tu comunidad'|trans }}</a>
+            <a href="{{ path('app_community_index') }}">{{ 'Información de tu comunidad'|trans }}</a>
         {% endif %}
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('app_community_index') }}">{{ 'Comunidades'|trans }}</a>
